@@ -1,0 +1,24 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        {% if page.footer %}{{ page.footer }}{% endif %}
+      </div>
+      <div class="col-md-4">
+        <strong>Questions or comments?</strong><br />
+        Please feel free to <a href="{% if page.contact %}{{ page.contact }}{% else %}{{ site.contact }}{% endif %}">contact us</a>.
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <strong>&copy; {{ site.copyrightyears }} Gentoo Foundation, Inc.</strong><br />
+        <small>
+          Gentoo is a trademark of the Gentoo Foundation, Inc.
+          The contents of this document, unless otherwise expressly stated, are licensed under the
+          <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">CC-BY-SA-3.0</a> license.
+          The <a href="http://www.gentoo.org/main/en/name-logo.xml">Gentoo Name and Logo Usage Guidelines</a> apply.
+        </small>
+      </div>
+    </div>
+  </div>
+</footer>
