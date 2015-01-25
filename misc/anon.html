@@ -1,0 +1,93 @@
+---
+title: "Gentoo Anonymous CVS, SVN and Git Server"
+layout: tyrian
+contact: "mailto:infra@gentoo.org"
+sitelabel: 'AnonVCS'
+extrajs: |
+  <script>
+    jQuery(function($) {
+      var hostname = window.location.hostname;
+
+      if (hostname == 'anongit.gentoo.org') {
+        $('#tabnav a[href="#git"]').tab('show');
+      } else if (hostname == 'anonsvn.gentoo.org') {
+        $('#tabnav a[href="#svn"]').tab('show');
+      } else {
+        $('#tabnav a[href="#cvs"]').tab('show');
+      }
+    });
+  </script>
+---
+<h1 class="first-header">Gentoo AnonCVS, AnonSVN &amp; AnonGit</h1>
+
+<p>
+  Welcome to the Gentoo Linux anonymous CVS, SVN and Git repositories.
+  This page lists the repositories available from this machine, and provides brief instructions.
+</p>
+<p>If you have problems, please file clearly marked bugs in the <a
+href="https://bugs.gentoo.org/enter_bug.cgi?product=Gentoo%20Infrastructure&version=unspecified&component=CVS%2FSVN%2FGit&rep_platform=All&op_sys=Linux&priority=P2&bug_severity=normal&bug_status=NEW&alias=&bug_file_loc=http%3A%2F%2F&short_desc=&comment=&commentprivacy=0&keywords=&dependson=&blocked=&bit-25=1&maketemplate=Remember%20values%20as%20bookmarkable%20template&form_name=enter_bug&assigned_to=infra-bugs%40gentoo.org">Gentoo Bugzilla</a>. 
+  Please remember to include anoncvs/anonsvn/anongit in the summary line.</p>
+
+<div class="alert alert-info">
+  If you would prefer to only browse and view the sources, rather than duplicate them to your own machine, please visit our <a href="http://sources.gentoo.org/" class="alert-link">source browser</a> instead.
+</div>
+
+<ul class="nav nav-tabs nav-justified" id="tabnav">
+  <li><a href="#cvs" data-toggle="tab"><strong>CVS</strong></a></li>
+  <li><a href="#svn" data-toggle="tab"><strong>SVN</strong></a></li>
+  <li><a href="#git" data-toggle="tab"><strong>Git</strong></a></li>
+  <li><a href="#rsync" data-toggle="tab"><strong>rsync</strong></a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="cvs">
+    <h2>CVS</h2>
+
+    <h3><span class="fa fa-cloud-download"></span> Instructions</h3>
+    <p>To check out from a repository, use the following command:</p>
+    <p><kbd>cvs -d :pserver:anonymous@anoncvs.gentoo.org/var/cvsroot co &lt;REPO&gt;</kbd></p>
+    <div class="alert alert-warning">
+      Please note that the CVS service is limited to <strong>5 concurrent users.</strong><br />
+      Additionally the following CVS commands are blocked for safety and security reasons:
+      <code>Kerberos-encrypt Gssapi-encrypt Gssapi-authenticate add remove admin import init history watch-on watch-off watch-add watch-remove watchers editors edit version tag rtag checkin</code>
+    </div>
+
+    <h3><span class="fa fa-book"></span> Repositories</h3>
+    <ul>
+      <!--#include virtual="/cvs.html" -->
+    </ul>
+  </div>
+  <div class="tab-pane active" id="svn">
+    <h2>SVN</h2>
+
+    <h3><span class="fa fa-cloud-download"></span> Instructions</h3>
+    <p>To check out from a repository, use the following command:</p>
+    <p><kbd>svn co svn://anonsvn.gentoo.org/&lt;REPO&gt;/</kbd></p>
+
+    <h3><span class="fa fa-book"></span> Repositories</h3>
+    <ul>
+      <!--#include virtual="/svn.html" -->
+    </ul>
+  </div>
+  <div class="tab-pane active" id="git">
+    <h2>Git</h2>
+
+    <h3><span class="fa fa-cloud-download"></span> Instructions</h3>
+    <p>To check out from a repository, use the following command:</p>
+    <p><kbd>git clone git://anongit.gentoo.org/&lt;REPO&gt;/</kbd></p>
+
+    <h3><span class="fa fa-book"></span> Repositories</h3>
+    <ul>
+      <!--#include virtual="/git.html" -->
+    </ul>
+  </div>
+  <div class="tab-pane active" id="rsync">
+    <h2>rsync</h2>
+
+    <h3><span class="fa fa-cloud-download"></span> Instructions</h3>
+    <p>Additionally, all repositories on this machine may be replicated using rsync.</p>
+    <p><kbd>rsync -a rsync://anonvcs.gentoo.org/vcs-public-&lt;TYPE&gt;root/&lt;REPO&gt;/</kbd></p>
+    <p>Or simply browse from <code>rsync://anonvcs.gentoo.org/</code> using <kbd>rsync</kbd>.</p>
+  </div>
+</div>
+
